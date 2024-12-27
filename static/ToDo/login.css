@@ -1,0 +1,76 @@
+body{
+    background-image: linear-gradient(to left, rgb(27, 27, 124), rgb(208, 14, 46));;
+    overflow: hidden; 
+    font-size: 1.1vmax;
+    color:white;
+    /* min-height: 100vh;
+   
+    margin:1.3vw;
+    text-decoration: none;  display: flex;
+    justify-content: center;
+    align-items: center;
+     */
+}
+
+/* Center the entire .cont div (the form container) */
+.cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center */
+    align-items: center; /* Horizontally center */
+    height: 100vh; /* Full viewport height */
+    padding: 20px; /* Optional: padding for spacing */
+}
+
+/* Center the form elements and adjust their size */
+form {
+    display: flex;
+    flex-direction: column; /* Stack the form elements */
+    align-items: flex-start; /* Align form items to the left */
+    background-color: #f9f9f9; /* Optional: background color */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for form */
+    width: 100%;
+    max-width: 500px; /* Limit the form width */
+    box-sizing: border-box; /* Prevent padding from causing extra space */
+}
+
+/* Style for input-group to align labels and inputs */
+.input-group {
+    margin-bottom: 15px; /* Space between each input group */
+    width: 100%; /* Ensure the inputs take up the full width */
+}
+
+/* Style the labels */
+label {
+    color:black;
+    margin-bottom: 5px; /* Space between label and input */
+    display: block; /* Ensure the label is on top of the input */
+    width: 100%; /* Ensure the label width matches the input width */
+}
+
+/* Style for inputs and buttons */
+input, button {
+    padding: 10px;
+    margin: 5px 0; /* Spacing between form items */
+    width: 100%; /* Ensure inputs take the full width of their parent */
+    max-width: 100%; /* Prevent the input from expanding beyond the container */
+    box-sizing: border-box; /* Prevent padding from affecting the width */
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Optional: border for inputs */
+    font-size: 1vmax;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Ensure the button takes up the full width */
+}
+
+button:hover {
+    background-color: #45a049; /* Change color on hover */
+}

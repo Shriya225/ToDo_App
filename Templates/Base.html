@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'ToDo/BaseStyle.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
+        </style>
+    <title>ToDO App</title>
+</head>
+
+<body>
+
+        <div class="header1">
+            <p><a href="{% url "user_login" %}">Login</a></p>
+            <p><a href="{% url "signup" %}">Register</a></p>
+        </div>
+
+    {% comment %} <div class="typing-container">
+        <p id="typing-text"></p>
+    </div> {% endcomment %}
+    <div class="Container ">
+     
+        <div class="typewriter cont item1">
+            <h1>Welcome to ToDo Hub.</h1>
+          </div>
+        <p class="cont item2" id="secondary-text">Your productivity partner.</p>
+    </div>
+{% comment %} <button>
+   <a href="{% url "viewTasks" %}">Start Now</a> 
+</button> {% endcomment %}
+<a href="{% url "user_logout" %}">logout</a>
+<script defer> 
+    window.onload = function() {
+        // Get the username passed from Django
+        var username = "{{ username }}";
+
+        // If the username is present (logged in)
+        if (username) {
+            // Show the alert with the username
+            alert("Hello, " + username + "!");
+        }
+        else{
+            alert("anonymous")
+        }
+    };
+    // Function to create typing effect
+{% comment %} function typeText(elementId, text, speed) {
+    let i = 0;
+    const element = document.getElementById(elementId);
+    function typeCharacter() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeCharacter, speed);
+        }
+    }
+    typeCharacter();
+} {% endcomment %}
+
+{% comment %} // Call the function to type the text
+document.addEventListener("DOMContentLoaded", function() {
+    typeText("typing-text", "Welcome to my website!", 100);
+}); {% endcomment %}
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the secondary text element
+    const secondaryText = document.getElementById("secondary-text");
+
+    // Delay revealing the secondary text to match the typewriter animation duration
+    setTimeout(() => {
+        secondaryText.style.opacity = 1; // Make the text visible
+    }, 3500); // Delay matches the typewriter animation duration (3.5s)
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="{% static 'ToDo/javascript/delete.js' %}"></script>
+    <script src="https://kit.fontawesome.com/5d474b0ce0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'ToDo/ToDo.css' %}">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
+</head>
+<body>
+    <div class="header">
+    <p class="item1">Tasks</p>
+    <p class="item2"><a href="{% url "home" %}"><i class="fa-solid fa-house"></i></a></p>
+    <p class="item3"><a href="{% url "profile" %}"><i class="fa-solid fa-circle-user"></i></a></p>
+</div>
+
+<form method="GET" id="search_form" >
+    <input type="text" name="q" placeholder="Search tasks" value="{{ query }}">
+    <button type="submit">Search</button>
+    <select name="sortby" onchange="this.form.submit()" class="sortby-select">
+        <option selected disabled>--SortBy--</option>
+        <option value="Time" {% if request.GET.sortby == 'Time'  %}selected{% endif %}>DueDate</option>
+        <option vlaue="Title" {% if request.GET.sortby == "Title" %}selected{% endif %}>Title</option>
+
+    </select>
+</form>
+
+
+
+
+
+   {% for item in all_objs %}
+   <div class="task task-{{ item.id }}">
+    <p class="title"><a href="{% url 'edit' pk=item.id %}">{{item.title}}</a></p>
+    <div class="subcont">
+    <p class="desc">{{item.description}}</p>
+    <p><b>DueDate:</b>{{item.due_date}}</p>
+    <button class="delete-btn" data-id="{{ item.id }}">Delete</button>
+</div>
+
+   </div>
+   {% endfor %} 
+   <div class="btn"><button class="btn1"><a href="{% url "addTask" %}">Add Task</a></button></div>
+</body>
+</html>

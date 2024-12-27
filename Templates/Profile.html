@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'ToDo/profile.css' %}">
+</head>
+<body>
+    <!-- Header for navigation -->
+    <div class="nav-bar">
+        <a href="{% url 'home' %}" class="nav-btn">Home</a>
+        <a href="{% url 'user_logout' %}" class="nav-btn">Logout</a>
+    </div>
+
+    <div class="profile-container">
+        <!-- Left Section (Profile Picture) -->
+        <div class="left-section">
+            <div class="profile-img">
+                {% if user.userprofile.profile_pic %}
+                    <img src="{{ user.userprofile.profile_pic.url }}" alt="Profile Picture">
+                {% else %}
+                    <p class="no-profile-pic">No profile picture uploaded</p>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Right Section (Form) -->
+        <div class="right-section">
+            <h2>Edit Profile</h2>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+                <button type="submit">Save Profile</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

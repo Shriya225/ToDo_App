@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "ToDo/signup.css" %}">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Signup</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>Signup</button>
+
+    </form>
+    <script>
+        {% comment %} document.addEventListener('DOMContentLoaded', function () {
+            // Get the input field and help text elements
+            const inputField = document.getElementById('id_username');
+            const helpText = document.getElementById('id_username_helptext');
+        
+            // Add a click event listener to the input field
+            inputField.addEventListener('focus', function () {
+                helpText.style.display = 'block';  // Show help text on click (focus)
+            });
+        
+            // Add a blur event listener to hide the help text when focus is lost
+            inputField.addEventListener('blur', function () {
+                helpText.style.display = 'none';  // Hide help text when focus is lost
+            });
+        });
+         {% endcomment %}
+    </script>
+</body>
+</html>
